@@ -1,0 +1,821 @@
+<html>
+<head>
+<title>ZOMATO</title>
+<script>
+i=0;
+arr=[,"pizza.jpg","biryani.jpg","rolls.jpg","burger.jpg","thali.jpg","junction.jpg","kfc.jpg","kwality.jpg","delhidarbar.jpg","dominos.jpg"]
+arr2=[""],[""],[""],[""],[""]
+
+function show()
+{
+/*var now=new Date();
+var date=now.toLocaleDateString();
+var time=now.toLocaleTimeString();			
+document.getElementById("currentdate").innerHTML="Date:-"+date+'   '+"Time:"+time;*/
+
+const paragraph =document.querySelector("#openClose");
+let  d=new Date();
+let day=d.getDay();
+let hours=d.getHours();
+let minutes=d.getMinutes();
+
+if ((hours>=10)&&(hours<=23))
+{
+document.getElementById("opening").innerHTML="open";
+//document.getElementById("orders").style.display="grid";
+}
+else
+{
+document.getElementById("opening").innerHTML="closed";
+//document.getElementById("m3").disabled="true"
+}
+for(i=1;i<=10;i++)
+{
+document.getElementById("it"+i).src=arr[i];
+}
+}
+resname=["junction","blue diamond ","pizza hut","kfc","dosa hut" ] 
+
+resimg=["junction1.jpg","bluediamond.jpg","pizzahut1.jpg","kfc1.jpg","dosahut1.jpg"]
+
+resad=[" Address:15/1,Gurudwara,New Kalimati Rd ,opposite Sakchi,Jamshedpur Jharkhand 831001<BR><BR> Contact:07079897222 <BR><BR> Time:10 AM-11 PM"," Address:1st Floor,Crystal Square,Kharkai Link Rd,beside Ram Krishna Mission School,Bistupur,Jamshedpur,Jharkhand 831001 <br><br>Contact:07070097748<br><br>Time:10 AM-10 PM "," Address:H No 300,Line,10,New KalimatiRd Hirasingh Bagan,Kasidih,Jamshedpur,Jharkhand 831001<br><br>Contact:0657 232 1106<br><br>Time:9 AM-11 PM", " Address: No 10A,next to Reliance Fresh &Bazaar,SNP Area,Ambagan,Sakchi,Jamshedpur,Jharkhand 831001 <br><br>Contact:0967471700<br><br>Time:10 AM-11.30 PM"," Address:Kumar Tower 1st floor near Delhi Darbar,SNP Area,Ambagan,Sakchi,Jamshedpur,Jharkhand 831001 <br><br>Contact:09334301591<br><br>Time:10 AM-10 PM"]
+
+foodimg=[["babycorn.jpg","chillipanner.jpg","vegmanchurian.jpg","dalmakhni.jpg","butternaan.jpg"],[ "aalodum.jpg","dalfry.jpg","malaikofta.jpg","mixveg.jpg","vegetablepulao.jpg"],["tandooripizza.jpg","classiccorn.jpg","cheesyspicypizza.jpg","boldbbqpizza.jpg","classiccorn.jpg"],["cricketcrunchmeal.jpg","superovermeal.jpg","rollssuperkings.jpg","zingerproburger.jpg","vegboxmeal.jpg"],["garlicroastdosa.jpg","garlicroastdosa.jpg","mexicandosa.jpg","regularmasaladosa.jpg","regularmasaladosa.jpg"]];
+
+foodname=[["baby corn","chilli panner","veg manchurian","dal makhni","Butter naan"],["aalo dum"," dal fry","malai khofta","mix veg","vegetable pulao"],["Tandoori pizza","classic corn pizza","cheesy spicy pizza","Bold BBQ pizza","Magherita"],["Cricket crunch meal","Super over meal","Rolls super kings","Zinger pro burger","veg box meal"],["Garlic Roast dosa","corn cheese crispy dosa","Mexican dosa","Regular masala dosa","american masala dosa"]];
+
+foodprice=[["180","120","110","200","50"],["70","110","330","250","190"],["300","250","250","450","199"],["199","299","99","149","55"],["85","149","120","110","160"]];
+ctr=2
+
+	
+function show1()
+{
+
+		str=document.getElementById("txt1").value
+		str=str.toLowerCase()
+		ctr=0
+		document.getElementById ("lbl").innerHTML=""
+		for(i=0;i<5;i++)
+		{
+		    if (document.getElementById("txt1").value.length!=0)
+			{
+				if (resname[i].startsWith(str))
+				{
+				
+					document.getElementById("lbl").innerHTML=document.getElementById("lbl").innerHTML+resname[i];
+
+					document.getElementById("m3") .style.display="grid"
+							for(j=0;j<5;j++)
+								{
+									document.getElementById("itt"+j).src=foodimg[i][j];
+									document.getElementById("name"+j).innerHTML=foodname[i][j];
+									document.getElementById("price"+j).innerHTML=foodprice[i][j];
+									
+									document.getElementById("m7") .style.display="grid"
+									document.getElementById("m8") .style.display="none"
+									
+									
+								}
+								document.getElementById("resimg0").src=resimg[i];
+								document.getElementById("resad0").innerHTML=resad[i];
+								
+				}
+
+				}
+    	}
+
+ }
+ 
+function show2()
+{
+str2=document.getElementById("lbl").innerHTML
+document.getElementById ("txt1").value=str2
+}
+ctr2=0
+function add()
+{
+ctr2++;
+if(ctr2<=30)
+{
+document.getElementById("lbl2").innerHTML=ctr2
+document.getElementById("s1").disabled=false;
+}
+else
+{
+window.alert("not more than 30 oders");
+document.getElementById("a1").disabled=true;
+document.getElementById("s1").disabled=false;
+
+}
+}
+function sub()
+{
+ctr2--;
+if(ctr2>=0)
+{
+document.getElementById("lbl2").innerHTML=ctr2
+}
+
+else
+{
+window.alert("oders cannot be null");
+document.getElementById("s1").disabled=true;
+document.getElementById("a1").disabled=false;
+}
+}
+
+ctr3=0
+function add1()
+{
+ctr3++;
+if(ctr3<=30)
+{
+document.getElementById("lbl3").innerHTML=ctr3
+document.getElementById("s2").disabled=false ;
+}
+
+else
+{
+window.alert("not more than 30 oders");
+document.getElementById("a2").disabled=true ;
+document.getElementById("s2").disabled=false ;
+}
+}
+function sub1()
+{
+ctr3--;
+if(ctr3>0)
+{
+document.getElementById("lbl3").innerHTML=ctr3
+}
+
+else
+{
+window.alert("oders cannot be null");
+document.getElementById("s2").disabled=true ;
+document.getElementById("a2").disabled=false ;
+}
+}
+ctr4=0
+function add2()
+{
+ctr4++;
+if(ctr4<=30)
+{
+document.getElementById("lbl4").innerHTML=ctr4
+document.getElementById("s3").disabled=false ;
+}
+
+else
+{
+window.alert("not more than 30 oders");
+document.getElementById("a3").disabled=true ;
+document.getElementById("s3").disabled=false ;
+}
+}
+function sub2()
+{
+ctr4--;
+if(ctr4>=0)
+{
+document.getElementById("lbl4").innerHTML=ctr4
+}
+
+else
+{
+window.alert("oders cannot be null");
+document.getElementById("s3").disabled=true;
+document.getElementById("a3").disabled=false;
+}
+}
+
+ctr5=0
+function add3()
+{
+ctr5++;
+if(ctr5<=30)
+{
+document.getElementById("lbl5").innerHTML=ctr5
+document.getElementById("s4").disabled=false;
+}
+
+else
+{
+window.alert("not more than 30 oders");
+document.getElementById("a4").disabled=true;
+document.getElementById("s4").disabled=false;
+}
+}
+function sub3()
+{
+ctr5--;
+if(ctr5>=0)
+{
+document.getElementById("lbl5").innerHTML=ctr5
+}
+
+else
+{
+window.alert("oders cannot be null");
+document.getElementById("s4").disabled=true;
+document.getElementById("a4").disabled=false;
+}
+}
+ctr6=0
+function add4()
+{
+ctr6++;
+if(ctr6<=30)
+{
+document.getElementById("lbl6").innerHTML=ctr6
+document.getElementById("s5").disabled=false;
+}
+
+else
+{
+window.alert("not more than 30 oders");
+document.getElementById("a5").disabled=true;
+document.getElementById("s5").disabled=false;
+
+}
+}
+function sub4()
+{
+ctr6--;
+if(ctr6>=0)
+{
+document.getElementById("lbl6").innerHTML=ctr6
+}
+
+else
+{
+window.alert("oders cannot be null");
+document.getElementById("s5").disabled=true;
+document.getElementById("a5").disabled=false;
+}
+}
+
+function total()
+{
+
+document.getElementById("m5").style.display="grid"
+k=2
+s=0;
+t=0;
+c=1;
+
+for(i=2;i<=6;i++)
+{
+x=parseInt(document.getElementById("lbl"+i).innerHTML);
+q=document.getElementById("price"+(i-2)).innerHTML;
+a=document.getElementById("lbl"+i).innerHTML;
+amount=a*q;
+s=s+amount;
+
+
+if(x>0)
+{
+document.getElementById("isno"+k).innerHTML=c;
+document.getElementById("itd"+k).innerHTML=document.getElementById("name"+(i-2)).innerHTML;
+document.getElementById("qtd"+k).innerHTML=document.getElementById("lbl"+i).innerHTML;
+document.getElementById("rtd"+k).innerHTML=amount
+k=k+1;
+c++;
+}	
+
+document.getElementById("finalamount").innerHTML=t+s;
+}
+}
+
+function payment()
+{
+document.getElementById("m6").style.display="grid"
+document.getElementById("m5").style.display="none"
+document.getElementById("b2").style.display="none"
+document.getElementById("message").style.display="none"
+document.getElementById("orders").style.display="none"
+document.getElementById("m4").style.display="none"
+document.getElementById("scanner").style.display="none"
+document.getElementById("brands").style.display="none"
+document.getElementById("dishes").style.display="none"
+document.getElementById("brands1").style.display="none"
+document.getElementById("dishes1").style.display="none"
+
+
+
+}
+function conifrm()
+{
+if(document.getElementById('cod').checked==true)
+{
+document.getElementById("message").style.display="grid"
+document.getElementById("payment").style.display="none"
+document.getElementById("b4").style.display="none"
+document.getElementById("orders").style.display="none"
+document.getElementById("m4").style.display="none"
+//document.getElementById("scanner").style.display="grid"
+}
+if(document.getElementById('upi').checked==true)
+{
+//document.getElementById("message").style.display="grid"
+document.getElementById("payment").style.display="none"
+document.getElementById("b4").style.display="none"
+document.getElementById("orders").style.display="none"
+document.getElementById("m4").style.display="none"
+document.getElementById("scanner").style.display="grid"
+
+}
+
+
+
+
+				  
+				   }
+				   
+
+
+
+
+
+</script>
+<style>
+
+main
+{
+display:grid;
+grid-template-rows:repeat(14,70px);
+grid-template-columns:15%  3% 13% 4%  10%  3% 10% 4% 10% 5% 1%  3% 1% 3%
+
+}
+main2
+{
+display:grid;
+grid-template-rows:repeat(7,70px);
+grid-template-columns:60% 20% 20% 20% 10% 10% 20% 20% 20% 20% 5% 5% 50% 30%
+}
+main7
+{
+display:none;
+grid-template-rows:repeat(7,70px);
+grid-template-columns:50%
+}
+main8
+{
+display:grid;
+grid-template-rows:repeat(7,70px);
+grid-template-columns:100%
+}
+main3
+{
+display:none;
+grid-template-rows:repeat(7,70px);
+grid-template-columns:100%
+}
+main5
+{
+display:none;
+grid-template-rows:repeat(5,40px);
+grid-template-columns:50% 20% 20% 10%
+}
+main6
+{
+display:none;
+grid-template-rows:repeat(30,40px);
+grid-template-columns:20% 20% 10% 10% 20% 20%
+}
+
+main4
+{
+display:grid;
+grid-template-rows:repeat(25,40px);
+grid-template-columns:10% 10% 20% 20% 20%
+}
+.zomatologo
+{
+width:100px;
+height:30px;
+grid-row:1/2;
+grid-column:3/4;
+
+}
+.address
+{
+width:600px;
+height:60px;
+grid-row:1/2;
+grid-column:4/9;
+}
+.dining
+{
+width:60px;
+height:30px;
+grid-row:4/5;
+grid-column:4/5;
+}
+.dinngtext
+{
+width:150px;
+height:30px;
+grid-row:4/5;
+grid-column:6/7;
+}
+.delivery
+{
+width:60px;
+height:30px;
+grid-row:4/5;
+grid-column:10/11;
+}
+.deliverytext
+{
+width:150px;
+height:30px;
+grid-row:4/5;
+grid-column:13/14;
+}
+.nightlife
+{
+width:60px;
+height:30px;
+grid-row:4/5;
+grid-column:14/15;
+}
+.nightlifetext
+{
+width:150px;
+height:30px;
+grid-row:4/5;
+grid-column:17/18;
+}
+.lbl1
+{
+width:150px;
+height:30px;
+grid-row:2/3;
+grid-column:6/9;
+}
+.line
+{
+width:1450px;
+height:1px;
+grid-row:5/6;
+grid-column:1/9;
+background-color:afafaf
+}
+.inspiration
+{
+width:750px;
+height:70px;
+grid-row:13/14;
+grid-column:2/3;
+}
+.brands
+{
+
+grid-row:23/24;
+grid-column:2/3;
+}
+.last
+{
+
+grid-row:10/17;
+grid-column:2/3;
+
+
+}
+.zomatologo2
+{
+grid-row:1/2;
+grid-column:4/5;
+background-color:red;
+}
+.total
+{
+grid-row:25/26;
+grid-column:1/2;
+}
+.payment
+{
+grid-row:1/2;
+grid-column:2/3;
+width:300px;
+height:200px;
+}
+.conifrm
+{
+grid-row:2/3;
+grid-column:3/4;
+width:100px;
+height:100px;
+}
+.finalamount
+{
+grid-row:1/2;
+grid-column:2/3;
+width:150px;
+height:70px;
+}
+.message
+{
+grid-row:1/2;
+grid-column:2/3;
+width:500px;
+
+}
+.scanner
+{
+grid-row:8/9;
+grid-column:2/3;
+width:200px;
+}
+.paynow
+{
+grid-row:4/5;
+grid-column:2/3;
+width:150px;
+height:70px;
+}
+.orders
+{
+grid-row:9/10;
+grid-column:1/2;
+}
+.resimg
+{
+grid-row:5/6;
+grid-column:1/2;
+
+background-attachment:fixed;
+margin-left:-220px;
+margin-top:10px;
+position:relative;
+z-index:1;
+}
+.resimg2
+{
+grid-row:5/6;
+grid-column:1/2;
+
+background-attachment:fixed;
+margin-left:-220px;
+margin-top:10px;
+position:relative;
+z-index:1
+}
+.resimg:hover
+{
+box-shadow:2px 2px 40px grey;
+margin-left:300px;
+
+}
+.resad
+{
+grid-row:5/6;
+grid-column:1/2;
+margin-top:20px;
+margin-left:-220px;
+width:500px;
+height:520px;
+word-spacing:10px;
+background-color:#ececec;
+
+font-weight:bold;
+}
+.resadd
+{
+grid-row:5/6;
+grid-column:1/2;
+margin-top:20px;
+
+width:500px;
+height:200px;
+word-spacing:10px;
+font-size:20px;
+font-weight:bold;
+}
+.preres
+{
+grid-row:11/12;
+grid-column:1/2;
+}
+.last2
+{
+
+grid-row:10/20;
+grid-column:1/7;
+background-color:#ececec;
+}
+.lblcurrentdate
+{
+width:150px;
+height:30px;
+grid-row:1/2;
+grid-column:18/23;
+}
+.opening
+{
+grid-row:6/7;
+grid-column:1/2;
+color:red;
+}
+
+
+
+
+
+
+</style>
+<body onload="show()">
+
+<main id="m1">
+<div class="zomatologo"><img src="zomato.jpg" width=100% height=100% ></div>
+<div class="address"><input type="text" onkeyup="show1()" id="txt1" placeholder="Block B,Jaypee Greens   |  Search  for restaurant,cuisine or a dish" STYLE="width:100%;height:100%;position:relative;" ></input  > </div>
+
+<div class="lbl1"><label  onclick="show2()"id="lbl" ></label></div>
+<div class="lblcurrentdate"><label id="currentdate"></label></div>
+<main2 id="m2">
+<div class="dining"><img src="dining.jpg" width=100% height=100%> </div>
+<div class="dinngtext"><font size=5>Dining Out</font></div>
+<div class="delivery"><img src="delivery.jpg" width=100% height=100%></div>
+<div class="deliverytext"><font size=5> Delivery</font></div>
+<div class="nightlife"><img src="nightlife.jpg" width=100% height=100%></div>
+<div class="nightlifetext"><font size=5>Nightlife</font></div>
+<div class="line"></div>
+</main2>
+<main7 id="m7" >
+<table class="resimg" id="resimg" align=left >
+<tr>
+<td>
+<img src=""id="resimg0"style="width:1460px; height:530px; " ></td> </tr></table>
+<div class="resad"><table  align=right  class="resadd"><tr><td id="resad0" ></td></tr>
+<tr>
+<td>
+<div class="opening"><label id="opening"></label></td></tr>
+</table></div>
+</main7>
+<main8 id="m8" >
+<table class="resimg2" id="resimg2" align=left >
+<tr>
+<td>
+<img src="zomatoback.jpg"id="resimg2"style="width:1460px; height:530px; " ></td> </tr></table>
+
+</main8>
+<div class="inspiration" id="dishes1"><font size=6 ><b>inspiration for your first order</b></font>
+ <table  class="dishes" id="dishes">
+<tr><td style= "width:160px;height:70px"  ></td></tr>
+<tr>
+<td style="padding:20px;"><img src=""id="it1" style= "border-radius:100% ;width:180px;height:140px"  ></td>
+
+<td style="padding:20px;"><img src=""id="it2" style= "border-radius:100% ;width:180px;height:140px" ></td>
+<td style="padding:20px;" ><img src=""id="it3" style= "border-radius:100% ;width:180px;height:140px"></td>
+<td style="padding:20px;"><img src=""id="it4" style= "border-radius:100% ;width:180px;height:140px"></td>
+<td style="padding:20px;" ><img src=""id="it5"  style= "border-radius:100% ;width:180px;height:140px"></td></tr> 
+<tr><td style="padding-left:100px;" ><b>Pizza</b></td><td style="padding-left:100px;"><b>Biryani</b></td><td style="padding-left:100px;"><b>Rolls</b></td><td style="padding-left:100px;"><b>Burger</b></td><td style="padding-left:100px;"><b>Thali</b></td>
+<tr><td style= "width:210px;height:70px"  ></td></tr></table>
+
+<table class="brands" id="brands"> 
+<div  id="brands1"><font size=6 ><b>Top Brands For you</b></font>
+<tr>
+<td style="padding:20px;"><img src=""id="it6"  style= "border-radius:100% ;width:180px;height:140px"></td>
+<td style="padding:20px;"><img src=""id="it7" style= "width:180px;height:140px"></td>
+<td style="padding:20px;"><img src=""id="it8" style= "border-radius:100% ;width:180px;height:140px"></td>
+<td style="padding:20px;"><img src=""id="it9"  style= "border-radius:100% ;width:180px;height:140px"></td>
+<td style="padding:20px;" ><img src=""id="it10" style= "border-radius:100% ;width:180px;height:140px"></td></tr>
+<tr><td style="padding-left:80px;"><b>Junction<b></td><td style="padding-left:100px;"><b>KFC</b></td><td style="padding-left:70px;"><b>Kwality walls</b></td><td style="padding-left:70px;"><b>Delhi Darbar</b></td><td style="padding-left:90px;"><b>Dominos</b> </b></td></tr>
+
+<tr><td style="padding-left:80px;">31 min</td><td style="padding-left:90px;">23 min</td><td style="padding-left:85px;">17 min</td><td style="padding-left:90px;">8 min</td><td style="padding-left:95px;">37 min</td>
+</table> 
+</main>
+
+<br><br>
+<main3 id="m3">
+<table border=1px id="orders" class="orders">
+<tr>
+<td align=center><font face="">IMAGES</font></td>
+<td align=center>NAME</td>
+<td align=center>RATE</td>
+<td align=center>ADD ITEMS</td>
+
+<tr>
+<td style="padding:20px;" align=center><img src=""id="itt0" style= "border-radius:100% ;width:180px;height:140px" ></td>  
+<td style="padding:20px;" id="name0" align=center></td>
+<td style="padding:20px;"id="price0" align=center></td> 
+<td align=center> <button  onclick="sub()" id="s1" style="width:40px;height:40px;" >-</button>&nbsp &nbsp<Label id="lbl2" >0</font></label>&nbsp &nbsp<button onclick="add()"id="a1" style="width:40px;height:40px;" >+</button></td> </tr>
+
+<td style="padding:20px;" align=center><img src=""id="itt1" style= "border-radius:100% ;width:180px;height:140px"  ></td><td style="padding:20px;" id="name1" align=center></td><td style="padding:20px;"id="price1"align=center></td><td align=center>
+<button  onclick="sub1()" id="s2" style="width:40px;height:40px;">-</button> &nbsp &nbsp<Label id="lbl3">0</label>&nbsp &nbsp
+<button onclick="add1()" id="a2"style="width:40px;height:40px;">+</button></td> </tr>
+
+<td style="padding:20px;" align=center><img src=""id="itt2" style= "border-radius:100% ;width:180px;height:140px"  ></td><td style="padding:20px;" id="name2" align=center></td><td style="padding:20px;"id="price2" align=center></td><td align=center>
+<button  onclick="sub2()" id="s3" style="width:40px;height:40px;">-</button>&nbsp &nbsp<Label id="lbl4" class="l1">0</label>&nbsp &nbsp<button onclick="add2()" id="a3" style="width:40px;height:40px;">+</button></td> </tr>
+
+<td style="padding:20px;"align=center><img src=""id="itt3" style= "border-radius:100% ;width:180px;height:140px"  ></td><td style="padding:20px;" id="name3"align=center></td><td style="padding:20px;"id="price3"align=center></td><td align=center> 
+<button  onclick="sub3()" id="s4" style="width:40px;height:40px;">-</button>&nbsp &nbsp<Label id="lbl5">0</label>&nbsp &nbsp<button onclick="add3()" id="a4" style="width:40px;height:40px;">+</button></td> </tr>
+
+<td style="padding:20px;" align=center><img src=""id="itt4" style= "border-radius:100% ;width:180px;height:140px"  ></td><td style="padding:20px;" id="name4" align=center></td><td style="padding:20px;"id="price4" align=center></td><td align=center> 
+<button  onclick="sub4()" id="s5" style="width:40px;height:40px;">-</button> &nbsp &nbsp<Label id="lbl6">0</label> &nbsp &nbsp<button onclick="add4()" id="a5" style="width:40px;height:40px;">+</button></td> </tr></table>
+<div class="total"><button onclick="total()" id="b2"Style= "width:150px; height:60px; border-radius:15%">Add To Cart</button></div>
+
+<main6 id="m6">
+<TABLE class="payment" align=center id="payment" >
+<tr><td><B>CHOOSE PAYMENT OPTION</B></td></tr>
+<tr><td><input type="radio" id="cod" name="pay">COD</input></td></tr>
+<tr><td><input type="radio"id="upi"  name="pay">UPI</input></td></tr>
+<tr><td><input type="radio"id="debit" name="pay" >DEBIT CARD</input></td></tr>
+</TABLE>
+
+<div class="conifrm"><button onclick="conifrm()" Style= "width:100px; height:60px; border-radius:15%"align=center id="b4">place order</button></div>
+<div class=" message"><label id="message"><font size=10 color="#00ff00">
+THANKS FOR ORDERING</font></label></div>
+<div class="scanner"><img src="E:\html\scanner.png" id="scanner" style="width:200px;"></div>
+<div class="preres"><label id="preres0"></label></div>
+<div class="preres"><label id="preres1"></label></div>
+<div class="preres"><label id="preres2"></label></div>
+<div class="preres"><label id="preres3"></label></div>
+<div class="preres"><label id="preres4"></label></div>
+</main6>
+
+</main3>
+<br>
+<br><br>
+<main5 id="m5">
+<table id="order"class="order">
+<tr>
+
+
+	<td id="isno1">s.no.</td>
+	<td id="itd1">ITEM </td>
+	<td id="qtd1"> QTY</TD>
+	<TD  id="rtd1"> RATE</TD>
+</TR>
+<tr>
+<td id="isno2"></td>
+<td id="itd2"></td>
+<td id="qtd2"></td>
+<td id="rtd2"></td>
+
+
+<tr>
+<td id="isno3"></td>
+<td id="itd3"></td>
+<td id="qtd3"></td>
+<td id="rtd3"></td>
+
+
+
+<tr>
+<td id="isno4"></td>
+<td id="itd4"></td>
+<td id="qtd4"></td>
+<td id="rtd4"></td>
+
+
+<tr>
+<td id="isno5"></td>
+<td id="itd5"></td>
+<td id="qtd5"></td>
+<td id="rtd5"></td>
+
+
+<tr>
+<td id="isno6"></td>
+<td id="itd6"></td>
+<td id="qtd6"></td>
+<td id="rtd6"></td>
+
+</TABLE>
+<table class="finalamount" align=right>
+<tr>
+<td id="atd">TOTAL</td></tr>
+<tr>
+<td>
+<label id="finalamount"></label></td>
+<td CLASS="paynow"> <button onclick="payment()" >pay now</button></tr></table>
+</main5>
+
+<main4 id="m4">
+<div class="last2">
+<div class="last"><table >
+<tr>
+<div class="zomatologo2"><td><img src="zomato.jpg" style= "width:100px;height:30px;padding-left:130px;" ></td> </tr></div>
+<tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr>
+<tr>
+<td style= "padding-left:130px;"  ><u><b>ABOUT ZOMATO</b></u> </TD>
+<TD   style= " padding-left:150px;" ><u><b>ZOMAVERSE</u></TD>
+<TD  style= " padding-left:150px;" ><u><b>FOR RESTAURANT</u></TD>
+<TD style= "padding-left:150px"><u><b>LEARN MORE</u></TD>
+<TD  style= "padding-left:150px" ><u><b>SOCIAL LINKS</b></u>	</TD></TR>
+<tr></tr><tr></tr><tr></tr>
+<tr><td style= "padding-left:130px;" >
+Who We Are<br><br>Blog<br><br>Work With Us<br><br>Investor Relations<br><br>Report Fraud<br><br>Press Kit<br><br>Contact Us</td>
+<td style= "padding-left:150px; padding-bottom:80px" >Zomato<br><br>Blinkit<br><br>Feeding India<br><br>Hyperpure<br><br>Zomaland</td>
+<td style= "padding-left:150px; padding-bottom:180px" >Partner With Us<br><br>Apps For You</td>
+<td style= "padding-left:150px; padding-bottom:120px">Privacy<br><br>Security<br><br>Terms<br><br>Sitemap</td>
+<td style= "padding-left:150px; padding-bottom:120px"> <img src="appstore.jpg" width=100%height=100%><br><br><img src="googleplay.jpg" width=100% height=100%></td></tr>
+<tr><td></div></TABLE>
+
+</main4>
+
+
+</body>
+</html>
